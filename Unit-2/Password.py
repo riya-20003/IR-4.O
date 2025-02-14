@@ -1,11 +1,15 @@
-passw=input("enter password:")
-if(len(passw)<9 or len(passw)>16):
-    print("enter a password with minimum 9 characters and maximum 15 characters")
-else:
-    if(passw.isalpha()):
-        print("use numbers")
+password = input("enter your password")
+#asdf12345%
+spec_char= "@#$%&"
+
+if(len(password)>8 or len(password)<16):
+    if password.isalpha() or password.isnumeric():
+        print("your password should have both number and alphabets")
+    elif password.isalnum():
+        print("your password doesn't contain special character")
+    elif any(passw in spec_char for passw in password):
+        print("valid password")
     else:
-        if(passw.isnumeric()):
-            print("USE alphabets")
-        else:
-            print("Correct")
+         print("invalid password...try again!")
+else:
+     print("password should have minimum 8 characters and maximum 16 characters")
